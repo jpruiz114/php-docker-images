@@ -1,4 +1,4 @@
-FROM docker.io/jpruiz114/composer-php-8.5-fpm-nginx-node:latest
+FROM docker.io/jpruiz114/composer-php-8.5-fpm-nginx-node@sha256:c9ef59838edf284657313d986456d8d36e9706af513925b769ac5fe84b3609ba
 
 LABEL maintainer="jpruiz114@gmail.com"
 
