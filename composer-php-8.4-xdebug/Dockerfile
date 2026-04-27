@@ -1,4 +1,4 @@
-FROM php:8.4-cli
+FROM php:8.4-cli@sha256:c8c4d2165bf3139039094c99c9370ead168df29ffa6c12373268dca212f0c938
 
 LABEL maintainer="jpruiz114@gmail.com"
 

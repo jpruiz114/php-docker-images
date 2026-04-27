@@ -1,6 +1,6 @@
-FROM node:bullseye AS node_stage
+FROM node:bullseye@sha256:8e02bd83fa9cd8bf2334d0edb9bd8ee405fe09433fd81c2ff4229edc63571e9a AS node_stage
 
-FROM php:8.4-fpm
+FROM php:8.4-fpm@sha256:eec2a132b91271dcf51e86119311ec4b22105736af704997a690594b8f88af31
 COPY --from=node_stage /usr/local/ /usr/local/
 
 LABEL maintainer="jpruiz114@gmail.com"
