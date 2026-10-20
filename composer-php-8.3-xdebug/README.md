@@ -5,7 +5,7 @@
 ```shell
 cd composer-php-8.3-xdebug
 docker build -t composer-php-8.3-xdebug .
-docker run -d composer-php-8.3-xdebug:latest sh -c "composer --version && php --version"
+docker run --rm composer-php-8.3-xdebug:latest sh -c "composer --version && php --version"
 cd ..
 ```
 
@@ -29,5 +29,5 @@ docker pull jpruiz114/composer-php-8.3-xdebug:latest
 ## Clean up after building
 
 ```shell
-echo y | docker system prune -a
+docker rmi composer-php-8.3-xdebug:latest
 ```

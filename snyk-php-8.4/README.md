@@ -5,7 +5,7 @@
 ```shell
 cd snyk-php-8.4
 docker build -t snyk-php-8.4 .
-docker run -d snyk-php-8.4:latest sh -c "composer --version && npm --version && php --version && snyk --version"
+docker run --rm snyk-php-8.4:latest sh -c "composer --version && npm --version && php --version && snyk --version"
 cd ..
 ```
 
@@ -29,5 +29,5 @@ docker pull jpruiz114/snyk-php-8.4:latest
 ## Clean up after building
 
 ```shell
-echo y | docker system prune -a
+docker rmi snyk-php-8.4:latest
 ```
