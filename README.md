@@ -8,6 +8,7 @@ Collection of Docker images for PHP development, testing, and production deploym
 - **composer-php-8.3-fpm-nginx-node**
 - **composer-php-8.4-fpm-nginx-node**
 - **composer-php-8.5-fpm-nginx-node**
+- **composer-php-8.6-fpm-nginx-node**
 
 Complete web server environment with PHP-FPM, Nginx, Node.js, and Composer. Ready for production deployments.
 
@@ -15,6 +16,7 @@ Complete web server environment with PHP-FPM, Nginx, Node.js, and Composer. Read
 - **composer-php-8.3-fpm-nginx-node-plus-dependencies**
 - **composer-php-8.4-fpm-nginx-node-plus-dependencies**
 - **composer-php-8.5-fpm-nginx-node-plus-dependencies**
+- **composer-php-8.6-fpm-nginx-node-plus-dependencies**
 
 Extended web server stack including development tools, image optimization utilities, additional PHP extensions, and debugging tools.
 
@@ -22,6 +24,7 @@ Extended web server stack including development tools, image optimization utilit
 - **composer-php-8.3-xdebug**
 - **composer-php-8.4-xdebug**
 - **composer-php-8.5-xdebug**
+- **composer-php-8.6-xdebug**
 
 PHP CLI environment with Composer, Xdebug for debugging and code coverage, and Redis extension. Ideal for testing and development.
 
@@ -29,6 +32,7 @@ PHP CLI environment with Composer, Xdebug for debugging and code coverage, and R
 - **snyk-php-8.3**
 - **snyk-php-8.4**
 - **snyk-php-8.5**
+- **snyk-php-8.6**
 
 Security scanning environment with Snyk tools, PHP CLI, and Composer for vulnerability assessment and dependency analysis.
 
