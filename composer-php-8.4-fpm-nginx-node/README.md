@@ -9,10 +9,11 @@ cd composer-php-8.4-fpm-nginx-node
 docker build -t composer-php-8.4-fpm-nginx-node .
 
 # Test the tools installed
-docker run -d composer-php-8.4-fpm-nginx-node:latest sh -c "php --version && nginx -v && nginx -t && node --version && npm --version && ps aux | grep supervisor && composer diagnose"
+docker run --rm composer-php-8.4-fpm-nginx-node:latest sh -c "php --version && nginx -v && nginx -t && node --version && npm --version && ps aux | grep supervisor && composer diagnose"
 
-# Run web server on port 8181
-docker run -d --name composer-php-8.4-test -p 8181:80 composer-php-8.4-fpm-nginx-node:latest
+# Run web server on host port 8181 (change WEB_PORT if the port is unavailable)
+WEB_PORT=8181
+docker run -d --name composer-php-8.4-test -p "${WEB_PORT}:80" composer-php-8.4-fpm-nginx-node:latest
 
 # Check supervisor status (should show nginx and php-fpm running)
 docker exec composer-php-8.4-test supervisorctl status
@@ -46,5 +47,5 @@ docker pull jpruiz114/composer-php-8.4-fpm-nginx-node:latest
 ## Clean up after building
 
 ```shell
-echo y | docker system prune -a
+docker rmi composer-php-8.4-fpm-nginx-node:latest
 ```
