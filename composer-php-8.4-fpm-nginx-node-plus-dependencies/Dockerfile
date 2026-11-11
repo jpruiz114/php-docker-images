@@ -1,4 +1,4 @@
-FROM docker.io/jpruiz114/composer-php-8.4-fpm-nginx-node@sha256:840383be69f34fe10b2ae062dc320f939bbc66126c217a7197e2e5f78a405318
+FROM docker.io/jpruiz114/composer-php-8.4-fpm-nginx-node@sha256:e1a9c4ac5f4104d9cb3caa2ce73c089b58c5e383f89f53773ecdaf9e4624c306
 
 LABEL maintainer="jpruiz114@gmail.com"
 
@@ -22,7 +22,7 @@ LABEL maintainer="jpruiz114@gmail.com"
 # Configures PHP gd extension for FreeType and JPEG support.
 # Installs PHP gd extension with concurrent jobs based on CPU cores.
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     build-essential \
     curl \
     gifsicle \

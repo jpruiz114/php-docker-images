@@ -1,9 +1,9 @@
-FROM php:8.5-cli@sha256:b070c68324c164aa1a656e25fde6474be4d0d1677fbb83e909e7eb2ed5e28a93
+FROM php:8.5-cli@sha256:50956f094e90a716d43bea28087d447555ad80510e386ab8c9c10d8c70d781a9
 
 LABEL maintainer="jpruiz114@gmail.com"
 
 # Install basic dependencies
-RUN apt-get update && apt-get install -y ca-certificates curl zip unzip
+RUN apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates curl zip unzip
 
 # Install Composer
 RUN set -eux; \
