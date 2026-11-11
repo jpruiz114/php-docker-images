@@ -1,4 +1,4 @@
-FROM docker.io/jpruiz114/composer-php-8.6-fpm-nginx-node:latest
+FROM docker.io/jpruiz114/composer-php-8.6-fpm-nginx-node@sha256:ff273e4def7fa7c3f563d29e13af7714c2b40348e633d0c2a2f92f61cb2e622f
 
 LABEL maintainer="jpruiz114@gmail.com"
 
@@ -25,7 +25,7 @@ COPY --from=ghcr.io/php/pie:1.5.2-bin@sha256:a254c78b51ca34daef0541fa1cf0147385c
 # Configures PHP gd extension for FreeType and JPEG support.
 # Installs PHP gd extension with concurrent jobs based on CPU cores.
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     build-essential \
     curl \
     gifsicle \

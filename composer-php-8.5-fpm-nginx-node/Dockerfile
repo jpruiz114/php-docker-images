@@ -1,11 +1,13 @@
-FROM node:bullseye@sha256:8e02bd83fa9cd8bf2334d0edb9bd8ee405fe09433fd81c2ff4229edc63571e9a AS node_stage
+FROM node:26-trixie-slim@sha256:5adad64f9a1fca2d51972caa65983634c8a774eb300d72b20f7f2a0f60368072 AS node_stage
+# Upgrade the npm bundled with Node to pick up fixes in its dependencies (undici, brace-expansion).
+RUN npm install -g npm@11.21.2
 
-FROM php:8.5-fpm@sha256:7d1586e8949f50449c2ca173aad9dac624a5cabb9a01780f9aa2ca8347a09af2
+FROM php:8.5-fpm@sha256:baf3ea13a8207fa18e1011bad1016e8b5e59fc974c6966d0efa6f36a16f875f0
 COPY --from=node_stage /usr/local/ /usr/local/
 
 LABEL maintainer="jpruiz114@gmail.com"
 
-RUN apt-get update && apt-get install -y 7zip ca-certificates curl git libzip-dev nginx procps supervisor unzip && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get upgrade -y && apt-get install -y 7zip ca-certificates curl git libzip-dev nginx procps supervisor unzip && rm -rf /var/lib/apt/lists/*
 RUN docker-php-ext-install zip
 RUN set -eux; \
 	curl -fsSL https://getcomposer.org/installer -o composer-setup.php; \

@@ -1,4 +1,4 @@
-FROM php:8.6-rc-cli@sha256:58c17b6ac3bcdbe40935ca738ab0f587271e396446a26805e7be9367257f84e9
+FROM php:8.6-rc-cli@sha256:537cdc09a377adf01bfe957ffb6b70aed3b07383ae032c8fa38af84d577df1f8
 
 LABEL maintainer="jpruiz114@gmail.com"
 
@@ -6,7 +6,7 @@ LABEL maintainer="jpruiz114@gmail.com"
 COPY --from=ghcr.io/php/pie:1.5.2-bin@sha256:a254c78b51ca34daef0541fa1cf0147385c93ba5ca799868392275d947f00fe7 /pie /usr/bin/pie
 
 # Install basic dependencies
-RUN apt-get update && apt-get install -y ca-certificates curl zip unzip
+RUN apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates curl zip unzip
 
 # Install Composer
 RUN set -eux; \
